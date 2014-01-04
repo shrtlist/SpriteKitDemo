@@ -54,8 +54,9 @@
     
     NSArray *nodes = [self nodesAtPoint:location];
     
+    SKNode *spaceship = [self childNodeWithName:@"spaceship"];
+    
     if ([nodes count] == 0) {
-        SKNode *spaceship = [self childNodeWithName:@"spaceship"];
         
         double angle = atan2(location.y-spaceship.position.y, location.x-spaceship.position.x);
         [spaceship runAction:[SKAction rotateToAngle:angle duration:0.75]];
@@ -66,12 +67,12 @@
         // load the particles
         NSString *path = [[NSBundle mainBundle] pathForResource:@"explosion" ofType:@"sks"];
         SKEmitterNode *particles = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-        particles.position = location;
+
         [particles runAction:[SKAction sequence:@[[SKAction waitForDuration:0.8],
                                                   [SKAction fadeAlphaTo:0 duration:.2],
                                                   [SKAction removeFromParent]]]];
         
-        [self addChild:particles];
+        [spaceship addChild:particles];
     }
 }
 
