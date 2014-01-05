@@ -25,6 +25,7 @@
 
     // Configure the view.
     SKView * skView = (SKView *)self.view;
+    skView.showsDrawCount = YES;
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
     
