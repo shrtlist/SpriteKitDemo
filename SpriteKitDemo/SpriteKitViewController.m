@@ -24,7 +24,7 @@
     [super viewDidLoad];
 
     // Configure the view.
-    SKView * skView = (SKView *)self.view;
+    SKView *skView = (SKView *)self.view;
     skView.showsDrawCount = YES;
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
@@ -35,20 +35,6 @@
     
     // Present the scene.
     [skView presentScene:scene];
-}
-
-- (BOOL)shouldAutorotate
-{
-    return YES;
-}
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskAllButUpsideDown;
-    } else {
-        return UIInterfaceOrientationMaskAll;
-    }
 }
 
 - (void)didReceiveMemoryWarning
